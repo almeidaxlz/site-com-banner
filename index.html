@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GS Tech - Início</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Banner -->
+  <header>
+    <div class="logo">GS Tech</div>
+    <nav>
+      <a href="#" onclick="mostrarPagina('inicio')">Início</a>
+      <a href="#" onclick="mostrarPagina('produtos')">Produtos</a>
+      <a href="#" onclick="mostrarPagina('carrinho')">Carrinho</a>
+      <a href="#" onclick="mostrarPagina('login')">Login</a>
+    </nav>
+  </header>
+
+  <!-- Início -->
+  <section id="inicio" class="pagina ativa">
+    <h1>Bem-vindo à GS Tech</h1>
+    <p>A GS Tech é especializada em peças para montar seu PC e acessórios de alta qualidade.</p>
+  </section>
+
+  <!-- Produtos -->
+  <section id="produtos" class="pagina">
+    <h2>Produtos</h2>
+    <div class="lista-produtos">
+      <div class="produto">
+        <h3>Produto 1</h3>
+        <button onclick="adicionarCarrinho('Produto 1')">Adicionar ao Carrinho</button>
+      </div>
+      <div class="produto">
+        <h3>Produto 2</h3>
+        <button onclick="adicionarCarrinho('Produto 2')">Adicionar ao Carrinho</button>
+      </div>
+      <div class="produto">
+        <h3>Produto 3</h3>
+        <button onclick="adicionarCarrinho('Produto 3')">Adicionar ao Carrinho</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Carrinho -->
+  <section id="carrinho" class="pagina">
+    <h2>Carrinho de Compras</h2>
+    <ul id="lista-carrinho"></ul>
+    <button onclick="esvaziarCarrinho()">Esvaziar Carrinho</button>
+  </section>
+
+  <!-- Login / Cadastro -->
+  <section id="login" class="pagina">
+    <h2>Cadastro</h2>
+    <form>
+      <label>Nome: <input type="text" required></label>
+      <label>CPF: <input type="text" required></label>
+      <label>Email: <input type="email" required></label>
+      <label>Telefone: <input type="tel"></label>
+      <label>Rua: <input type="text"></label>
+      <label>Nº da Casa: <input type="text"></label>
+      <label>Bairro: <input type="text"></label>
+      <label>Cidade: <input type="text"></label>
+      <label>UF: <input type="text" maxlength="2"></label>
+      <label>CEP: <input type="text"></label>
+      <label>Senha: <input type="password" required></label>
+      <button type="submit">Cadastrar</button>
+    </form>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>

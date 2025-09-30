@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>GS Tech - Produtos</title>
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    function adicionarCarrinho(produto) {
+      let itens = JSON.parse(localStorage.getItem("carrinho")) || [];
+      itens.push(produto);
+      localStorage.setItem("carrinho", JSON.stringify(itens));
+      alert(produto + " adicionado ao carrinho!");
+    }
+  </script>
+</head>
+<body>
+  <header class="header">
+    <div class="logo"><img src="img/logo.png" alt="GS Tech"></div>
+    <nav class="nav">
+      <a href="index.html">Início</a>
+      <a href="produtos.html" class="active">Produtos</a>
+      <a href="carrinho.html">Carrinho</a>
+      <a href="login.html">Login</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Produtos disponíveis</h2>
+    <div class="produtos">
+      <div class="produto">
+        <img src="img/produto1.png" alt="Produto 1">
+        <h3>Produto 1</h3>
+        <button onclick="adicionarCarrinho('Produto 1')">Adicionar</button>
+      </div>
+      <div class="produto">
+        <img src="img/produto2.png" alt="Produto 2">
+        <h3>Produto 2</h3>
+        <button onclick="adicionarCarrinho('Produto 2')">Adicionar</button>
+      </div>
+      <div class="produto">
+        <img src="img/produto3.png" alt="Produto 3">
+        <h3>Produto 3</h3>
+        <button onclick="adicionarCarrinho('Produto 3')">Adicionar</button>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    © 2025 GS Tech - Todos os direitos reservados.
+  </footer>
+</body>
+</html>
