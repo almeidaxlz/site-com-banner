@@ -1,24 +1,14 @@
-const formCliente = document.getElementById("form-cliente");
 
-formCliente.addEventListener("submit", async (event) => {
-    event.preventDefault();
+const mysql = require("mysql2/promise")
 
-    const dados = pegarDadosCliente();
-    console.log(dados)
+// criar a conexão
+const pool = mysql.createPool({
+    host: "127.0.0.1",
+    port: "3000",
+    user: "root",
+    password: "escola", //senha "escola" no linux
+    database: "api_epa"
 })
-
-function pegarDadosCliente(){
-    let cliente = new Object();
-    cliente.nome = document.getElementById("nome").value
-    cliente.cpf = document.getElementById("cpf").value
-    cliente.email = document.getElementById("email").value
-    cliente.telefone = document.getElementById("telefone").value
-    cliente.cep = document.getElementById("cep").value
-    cliente.rua = document.getElementById("rua").value
-    cliente.n_casa = document.getElementById("numero").value
-    cliente.bairro = document.getElementById("bairro").value
-    cliente.cidade = document.getElementById("cidade").value
-    cliente.uf = document.getElementById("uf").value
-    cliente.senha = document.getElementById("senha").value
-    return cliente
-}
+module.exports = Object.freeze({
+    pool: pool
+})
