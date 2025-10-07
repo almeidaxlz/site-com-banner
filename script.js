@@ -34,13 +34,31 @@ function esvaziarCarrinho() {
 
 // Chama a função ao carregar a página
 window.onload = atualizarCarrinho;
-const formCliente = document.getElementById("form-cliente");
+const formCliente = document.getElementById("form-cadastro");
 
 formCliente.addEventListener("submit", async (event) => {
     event.preventDefault();
 
     const dados = pegarDadosCliente();
     console.log(dados)
+    try {
+      const resposta = await fetch("http://127.0.0.1:3000/cadastrar" , {
+          method: "POST",
+          headers: {"Content-Type": "application/json"}, 
+          body: JSON.stringify(dados)
+      })
+    
+      if(!resposta.ok) {
+          throw new Error("Erro na API!")
+      }
+    
+      alert("Cadastro realizado com sucesso!")
+      formCliente.reset()
+    
+    } catch (error) {
+      alert("Erro ao cadastrar cliente: "+ error)
+    }
+      
 })
 
 function pegarDadosCliente(){
@@ -51,7 +69,7 @@ function pegarDadosCliente(){
     cliente.telefone = document.getElementById("telefone").value
     cliente.cep = document.getElementById("cep").value
     cliente.rua = document.getElementById("rua").value
-    cliente.n_casa = document.getElementById("numero").value
+    cliente.n_casa = document.getElementById("n_casa").value
     cliente.bairro = document.getElementById("bairro").value
     cliente.cidade = document.getElementById("cidade").value
     cliente.uf = document.getElementById("uf").value
